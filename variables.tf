@@ -22,7 +22,7 @@ EOT
     network_subnet_cidr         = string
     resource_group_name         = string
     sku_name                    = string
-    internet_connection_enabled = optional(bool, false)
+    internet_connection_enabled = optional(bool) # Default: false
     nsxt_password               = optional(string)
     tags                        = optional(map(string))
     vcenter_password            = optional(string)
