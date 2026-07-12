@@ -1,3 +1,7 @@
+output "vmware_private_clouds_id" {
+  description = "Map of id values across all vmware_private_clouds, keyed the same as var.vmware_private_clouds"
+  value       = { for k, v in azurerm_vmware_private_cloud.vmware_private_clouds : k => v.id }
+}
 output "vmware_private_clouds_circuit" {
   description = "Map of circuit values across all vmware_private_clouds, keyed the same as var.vmware_private_clouds"
   value       = { for k, v in azurerm_vmware_private_cloud.vmware_private_clouds : k => v.circuit }
