@@ -12,20 +12,28 @@ Required:
 Optional:
     - internet_connection_enabled
     - nsxt_password
+    - nsxt_password_key_vault_id (alternative to nsxt_password - read from Key Vault instead)
+    - nsxt_password_key_vault_secret_name (alternative to nsxt_password - read from Key Vault instead)
     - tags
     - vcenter_password
+    - vcenter_password_key_vault_id (alternative to vcenter_password - read from Key Vault instead)
+    - vcenter_password_key_vault_secret_name (alternative to vcenter_password - read from Key Vault instead)
 EOT
 
   type = map(object({
-    location                    = string
-    name                        = string
-    network_subnet_cidr         = string
-    resource_group_name         = string
-    sku_name                    = string
-    internet_connection_enabled = optional(bool) # Default: false
-    nsxt_password               = optional(string)
-    tags                        = optional(map(string))
-    vcenter_password            = optional(string)
+    location                               = string
+    name                                   = string
+    network_subnet_cidr                    = string
+    resource_group_name                    = string
+    sku_name                               = string
+    internet_connection_enabled            = optional(bool) # Default: false
+    nsxt_password                          = optional(string)
+    nsxt_password_key_vault_id             = optional(string)
+    nsxt_password_key_vault_secret_name    = optional(string)
+    tags                                   = optional(map(string))
+    vcenter_password                       = optional(string)
+    vcenter_password_key_vault_id          = optional(string)
+    vcenter_password_key_vault_secret_name = optional(string)
     management_cluster = object({
       size = number
     })
